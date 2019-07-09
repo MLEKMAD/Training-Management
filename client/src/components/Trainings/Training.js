@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Card, Button } from 'react-bootstrap';
 
-export class Shop extends Component {
+export class Training extends Component {
 
     like = () =>{
         this.props.like(this.props.id);
@@ -12,15 +12,14 @@ export class Shop extends Component {
     }
 
     render() {
-        const {name, picture, email, city} = this.props;
+        const {name, collaborator, T_date} = this.props;
         return (
             <Card >
-                <Card.Img variant="top" src={picture} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
-                        <p>Contact us at : {email}</p>
-                        <p>Or come visit us at : {city}</p>
+                        <p>The collaborator doing this Training is: {collaborator}</p>
+                        <p>Reminder:The training take time at:{T_date}</p>
                 </Card.Text>
                     <Button variant="primary" onClick = {this.like}>like</Button>
                     <Button variant="danger" onClick = {this.dislike}>dislike</Button>
@@ -30,4 +29,4 @@ export class Shop extends Component {
     }
 }
 
-export default Shop
+export default Training

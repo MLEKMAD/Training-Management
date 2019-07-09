@@ -1,3 +1,4 @@
-import Shop from "./Shop";
 
-export default Shop
+import { Training } from "./Training";
+
+export default Training

@@ -13,10 +13,10 @@ const schema = yup.object({
         .string()
         .required()
         .min(6, 'Seems a bit short'),
-    FirstN:yup
+    First_Name:yup
         .string()
         .required(),
-    LastN:yup
+    Last_Name:yup
         .string()
         .required(),
     type:yup
@@ -90,13 +90,13 @@ export class SignUp extends Component {
                                             type="text"
                                             placeholder="First Name"
                                             aria-describedby="inputGroupPrepend"
-                                            name="FirstN"
-                                            value={values.FirstN}
+                                            name="First_Name"
+                                            value={values.First_Name}
                                             onChange={handleChange}
-                                            isInvalid={!!errors.FirstN}
+                                            isInvalid={!!errors.First_Name}
                                         />
                                         <Form.Control.Feedback type="invalid">
-                                            {errors.FirstN}
+                                            {errors.First_Name}
                                         </Form.Control.Feedback>
                                     </InputGroup>
                                 </Form.Group>
@@ -106,13 +106,13 @@ export class SignUp extends Component {
                                             type="text"
                                             placeholder="Last Name"
                                             aria-describedby="inputGroupPrepend"
-                                            name="FirstN"
-                                            value={values.LastN}
+                                            name="Last_Name"
+                                            value={values.Last_Name}
                                             onChange={handleChange}
-                                            isInvalid={!!errors.LastN}
+                                            isInvalid={!!errors.Last_Name}
                                         />
                                         <Form.Control.Feedback type="invalid">
-                                            {errors.LastN}
+                                            {errors.Last_Name}
                                         </Form.Control.Feedback>
                                     </InputGroup>
                                 </Form.Group>

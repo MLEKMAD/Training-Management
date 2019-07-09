@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ShopList, NavBar, SignInUp } from './components';
 import ApiService from './utils/Api';
 
+let imgUrl ='/assets/background.jpg';
 export class App extends Component {
   constructor() {
     super();
@@ -81,7 +82,7 @@ export class App extends Component {
   render() {
     let { authenticated, favTabSelected, fav, toShow } = this.state;
     return (
-      <>
+      <div  style ={ { backgroundImage: `url(${ imgUrl })`} }>
         <NavBar 
           toggelShowAll = {this.toggelShowAll}
           toggelShowFav = {this.toggelShowFav}
@@ -99,7 +100,7 @@ export class App extends Component {
             like={this.like}
             dislike={this.dislike}
             list={favTabSelected ? fav : toShow} />}
-      </>
+      </div>
     )
   }
 }
