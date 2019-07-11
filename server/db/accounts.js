@@ -21,11 +21,11 @@ const singIn = (email, password, done) => {
         })
 }
 
-const signUp = (email, password,FirstN,LastN,Type, done) => {
-    if (email == null || password == null||FirstN==null||LastN==null||Type==null)
+const signUp = (email, password,FirstName,LastName,Type, done) => {
+    if (email == null || password == null||FirstName==null||LastName==null||Type==null)
         done(null);
     else {
-        let user = new Models.User({ email: email, password: Hash(password),FirstN:FirstN,LastN:LastN,Type:Type });
+        let user = new Models.User({ email: email, password: Hash(password),FirstName:FirstName,LastName:LastName,Type:Type });
         user.save((err, added) => {
             if (err) {
                 //this is probably because there is a user with the same email

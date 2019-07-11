@@ -1,25 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
+mongoose.connect("mongodb://127.0.0.1:27017/united", { useNewUrlParser: true });
 
-let Trainings = new Schema({
-    id:int,
+let TrainingProto = new Schema({
+    id:Number,
     name: String,
     collaborator: String,
     T_date: Date,
-   rating: int
+   rating: Number
 });
 
-let Training = mongoose.model('Trainings', Trainings);
+let Training = mongoose.model('Trainings', TrainingProto);
 
 let userProto = new Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     email: { type: String, required: true},
     type:{ type: String, required: true},
-    FirstN:{ type: String, required: true},
-    LastN:{ type: String, required: true},
+    FirstName:{ type: String, required: true},
+    LastName:{ type: String, required: true},
     prefered: [{ type: Schema.Types.ObjectId, ref: 'Trainings' }]
 })
 

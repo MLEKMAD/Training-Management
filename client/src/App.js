@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ShopList, NavBar, SignInUp } from './components';
+import { TrainingList, NavBar, SignInUp } from './components';
 import ApiService from './utils/Api';
 
 let imgUrl ='/assets/background.jpg';
@@ -12,7 +12,7 @@ export class App extends Component {
       favTabSelected: false,
       user: null,
       loading: false,
-      allShop: [],
+      allTraining: [],
       toShow:[],
       fav:[]
     }
@@ -23,31 +23,31 @@ export class App extends Component {
       authenticated: true,
       user: user,
     });
-    await this.getAllShops();
+    await this.getAllTraining();
     await this.updateFav();
   }
 
-  tweakShopsToShow = () => {
+  tweakTrainingsToShow = () => {
     //filtering The Shops to show
-    let toShow = this.state.allShop.filter(x=>this.state.fav.every(favorite=>favorite._id !== x._id));
+    let toShow = this.state.allTraining.filter(x=>this.state.fav.every(favorite=>favorite._id !== x._id));
     this.setState({
       toShow:toShow
     })
   }
 
-  getAllShops = async() => {
-    const allShop = await this.api.get('/shops'); //Not a good way: Should separate the logic from display
+  getAllTraining = async() => {
+    const allTraining = await this.api.get('/Trainings'); //Not a good way: Should separate the logic from display
     this.setState({
-      allShop:allShop
+      allTraining:allTraining
     })
   }
 
   updateFav = async() =>{
-    let fav = await this.api.get(`/users/${this.state.user._id}/shops`);
+    let fav = await this.api.get(`/users/${this.state.user._id}/Trainings`);
     this.setState({
       fav:fav
     })
-    this.tweakShopsToShow();
+    this.tweakTrainingssToShow();
   }
 
   toggelShowAll = ()=>{
@@ -62,13 +62,13 @@ export class App extends Component {
     })
   }  
 
-  like = async (shop_id) => {
-    await this.api.put(`/users/${this.state.user._id}/like/${shop_id}`);
+  like = async (Training_id) => {
+    await this.api.put(`/users/${this.state.user._id}/like/${Training_id}`);
     this.updateFav();
   }
 
-  dislike = async (shop_id) => {
-    await this.api.put(`/users/${this.state.user._id}/dislike/${shop_id}`);
+  dislike = async (Training_id) => {
+    await this.api.put(`/users/${this.state.user._id}/dislike/${Training_id}`);
     this.updateFav();
   }
 
@@ -96,7 +96,7 @@ export class App extends Component {
             />}
 
         {authenticated
-          && <ShopList
+          && <TrainingList
             like={this.like}
             dislike={this.dislike}
             list={favTabSelected ? fav : toShow} />}

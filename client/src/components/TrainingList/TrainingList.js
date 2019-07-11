@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
-import Shop from '../Trainings';
+import Training from '../Trainings';
 
-export class ShopList extends Component {
+export class TrainingList extends Component {
 
     calculateDistance(shopA) {
         let myCoordinates = this.myPosition();
@@ -29,10 +29,9 @@ export class ShopList extends Component {
                          'WoW Such Empty'
                          :list.map(item =>
                             <Col md={4} xs={6}>
-                                <Shop city={item.city}
+                                <Training city={item.Collaborator}
                                     name={item.name}
-                                    picture={item.picture}
-                                    email={item.email}
+                                    T_date={item.T_date}
                                     id={item._id}
                                     like={this.props.like}
                                     dislike={this.props.dislike}
@@ -47,4 +46,4 @@ export class ShopList extends Component {
     }
 }
 
-export default ShopList
+export default TrainingList

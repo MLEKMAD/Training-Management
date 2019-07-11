@@ -1,11 +1,11 @@
 import Shop from './Trainings';
-import ShopList from './ShopList';
+import TrainingList from './TrainingList';
 import NavBar from './NavBar';
 import SignInUp from './SignInUp';
 
 export {
     NavBar,
     Shop,
-    ShopList,
+    TrainingList,
     SignInUp
 }

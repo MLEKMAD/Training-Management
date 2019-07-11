@@ -21,7 +21,7 @@ const schema = yup.object({
         .required(),
     type:yup
         .string()
-        .required()
+        
     
     
 
